@@ -1,0 +1,10 @@
+# Release Notes
+
+## [Unreleased]
+
+### Added
+
+- Plugin updater moved out of `avelpress/avelpress` (1.3.2) into its own package,
+  keeping the `AvelPress\Update` namespace, the classes and the config format
+- `UpdaterBootstrapper::boot()`, which registers the updater from the `updater`
+  key of `AvelPress::init()`

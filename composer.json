@@ -1,0 +1,45 @@
+{
+    "name": "avelpress/updater",
+    "description": "Offers new versions of a WordPress plugin distributed outside wordpress.org on the WordPress update screen. Optional add-on for AvelPress, also usable on its own.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "wordpress",
+        "plugin",
+        "updater",
+        "avelpress"
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.4"
+    },
+    "suggest": {
+        "avelpress/avelpress": "^1.4 turns the updater on from the 'updater' key of AvelPress::init()"
+    },
+    "autoload": {
+        "psr-4": {
+            "AvelPress\\Update\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Marcos Gomes Neto",
+            "homepage": "https://github.com/marcosgomesneto"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.0.x-dev"
+        }
+    },
+    "archive": {
+        "exclude": [
+            "/tests",
+            "/.vscode",
+            "*.md"
+        ]
+    },
+    "scripts": {
+        "test": "php tests/run.php"
+    }
+}

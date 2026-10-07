@@ -14,9 +14,12 @@ changing the update source. Code that hooks the update check gets a plugin
 rejected in review. Plugins distributed through wordpress.org must **not**
 require this package.
 
-`avel build` enforces this: with `'build' => ['wordpress_org' => true]` in
-`avelpress.config.php`, the build fails if `avelpress/updater` is among the
-installed dependencies or if the plugin still configures an `updater`.
+`avel build` (avelpress-cli 1.2.0 or later) enforces this: with
+`'build' => ['wordpress_org' => true]` in `avelpress.config.php`, the build
+fails if `avelpress/updater` is among the installed dependencies, if the plugin
+still configures an `updater`, or if the installed `avelpress/avelpress` still
+bundles it (1.3.0 to 1.3.2). Older CLI versions, up to 1.1.5, ignore
+`wordpress_org` silently and check nothing.
 
 ## Installation
 
@@ -27,7 +30,14 @@ composer require avelpress/updater
 The package has no dependency on `avelpress/avelpress`, and it works with or
 without it.
 
-## Usage with AvelPress (1.4 or later)
+Require it in the same change that moves the plugin to `avelpress/avelpress`
+2.0. AvelPress 1.3.0 to 1.3.2 still carries its own copy of these classes, so
+with both installed Composer reports an "Ambiguous class resolution" when it
+optimizes the autoloader and loads whichever copy it finds first; a fix made in
+this package can then be silently shadowed by the 1.3 copy. Treat core 1.3.x
+plus this package as a transitional state only.
+
+## Usage with AvelPress (2.0 or later)
 
 Declare `updater` in `AvelPress::init()`, exactly as before the split:
 

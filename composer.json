@@ -14,7 +14,7 @@
         "php": ">=7.4"
     },
     "suggest": {
-        "avelpress/avelpress": "^1.4 turns the updater on from the 'updater' key of AvelPress::init()"
+        "avelpress/avelpress": "^2.0 turns the updater on from the 'updater' key of AvelPress::init()"
     },
     "autoload": {
         "psr-4": {
